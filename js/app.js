@@ -1,5 +1,13 @@
+var newGameNumber = 0;
+
 
 $(document).ready(function(){
+
+	/*--- generate random number between 1 and 100 ---*/
+	
+  		newGameNumber = Math.floor((Math.random() * 100) + 0);
+  		console.log(newGameNumber);
+
 	
 	/*--- Display information modal box ---*/
   	$(".what").click(function(){
@@ -14,9 +22,10 @@ $(document).ready(function(){
 
   	/*--- New Game ---*/
   	$("a.new").click(function(){
-  		location.reload();
+  		var newGame = location.reload();
 
   	});
+
 });
 
 
