@@ -12,6 +12,11 @@ $(document).ready(function(){
   		$(".overlay").fadeOut(1000);
   	});
 
+  	/*--- New Game ---*/
+  	$("a.new").click(function(){
+  		location.reload();
+
+  	});
 });
 
 
