@@ -21,8 +21,8 @@ $(document).ready(function(){
   		$(".overlay").fadeOut(1000);
   	});
 
-  	$("form").submit(function(evt) {
-  		evt.preventDefault();
+  	$("form").submit(function(event) {
+  		event.preventDefault();
   		checkUserGuess();
   	});
   	/*--- New Game ---*/
@@ -57,18 +57,18 @@ $(document).ready(function(){
 
  	addToList(userGuess);
 
- 	if (theDifference < 10)
+ 	if (theDifference === 0)
+ 		write("You Got It!");
+ 	else if (theDifference <= 10)
  		write("On Fire");
- 	else if (theDifference < 25)
+ 	else if (theDifference <= 25)
  		write("Hotter");
- 	else if (theDifference < 50)
+ 	else if (theDifference <= 50)
  		write("Warm");
- 	else if (theDifference < 75)
+ 	else if (theDifference <= 75)
  		write("Cold");
- 	else if (theDifference < 100)
+ 	else if (theDifference <= 100)
  		write("Freezing");
- 	else if (theDifference == 0)
- 		write("Great work! You Guessed Correctly!");
   					
   		
   	}
