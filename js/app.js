@@ -1,78 +1,74 @@
 var newGameNumber = 0,
-	guesses = [];
+guesses = [];
 
 
 $(document).ready(function(){
 
 	/*--- generate random number between 1 and 100 ---*/
 	
-  		newGameNumber = Math.floor((Math.random() * 100) + 0);
-  		console.log(newGameNumber);
+	newGameNumber = Math.floor((Math.random() * 100) + 0);
 
 	
 	/*--- Display information modal box ---*/
-  	$(".what").click(function(){
-    	$(".overlay").fadeIn(1000);
+	$(".what").click(function(){
+		$(".overlay").fadeIn(1000);
 
-  	});
+	});
 
-  	/*--- Hide information modal box ---*/
-  	$("a.close").click(function(){
-  		$(".overlay").fadeOut(1000);
-  	});
+	/*--- Hide information modal box ---*/
+	$("a.close").click(function(){
+		$(".overlay").fadeOut(1000);
+	});
 
-  	$("form").submit(function(event) {
-  		event.preventDefault();
-  		checkUserGuess();
-  	});
-  	/*--- New Game ---*/
-  	$("a.new").click(function(){
-  		var newGame = location.reload();
+	$("form").submit(function(event) {
+		event.preventDefault();
+		checkUserGuess();
+	});
+	/*--- New Game ---*/
+	$("a.new").click(function(){
+		var newGame = location.reload();
 
-  	});
+	});
 
 });
 
-  	/*--- add to guess list ---*/
-  function addToList(blueArea) {
-  	guesses.push(blueArea);
-  	$("#count").text(guesses.length);
-  	$("ul#guessList").append("<li>" + blueArea + "</li>");
-  }
+/*--- add to guess list ---*/
+function addToList(blueArea) {
+	guesses.push(blueArea);
+	$("#count").text(guesses.length);
+	$("ul#guessList").append("<li>" + blueArea + "</li>");
+}
 /*--create write function for guess list---*/
-  	function write(txt) {
-  		document.getElementById("feedback").innerHTML = txt;
-  	}
+function write(txt) {
+	document.getElementById("feedback").innerHTML = txt;
+}
 
 /*---checks if user guess is hot or cold---*/
-  	function checkUserGuess() {
-  		var userGuess = parseInt($("#userGuess").val()),
-  		theDifference = Math.abs(newGameNumber - userGuess);
-  		
- 	
- 	/*--- debug ---*/
- 	console.log("newGameNumber:" + newGameNumber);
- 	console.log("userGuess:" + userGuess);
- 	console.log("theDifference:" + theDifference);
+function checkUserGuess() {
+	var userGuess = parseInt($("#userGuess").val()),
+	theDifference = Math.abs(newGameNumber - userGuess);
+	
+	
+	
 
- 	addToList(userGuess);
+	addToList(userGuess);
 
- 	if (theDifference === 0)
- 		write("You Got It!");
- 	else if (theDifference <= 10)
- 		write("On Fire");
- 	else if (theDifference <= 25)
- 		write("Hotter");
- 	else if (theDifference <= 50)
- 		write("Warm");
- 	else if (theDifference <= 75)
- 		write("Cold");
- 	else if (theDifference <= 100)
- 		write("Freezing");
-  					
-  		
-  	}
-  		
+	if (theDifference === 0)
+		write("You Got It!");
+	else if (theDifference <= 10)
+		write("On Fire");
+	else if (theDifference <= 25)
+		write("Hotter");
+	else if (theDifference <= 50)
+		write("Warm");
+	else if (theDifference <= 75)
+		write("Cold");
+	else if (theDifference <= 100)
+		write("Freezing");
+	
+	
+}
+
 
 
 
